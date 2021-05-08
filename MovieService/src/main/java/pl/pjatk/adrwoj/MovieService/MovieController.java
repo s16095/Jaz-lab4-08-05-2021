@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/movies")
 public class MovieController {
 
     private final MovieService movieService;
@@ -16,7 +16,7 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @GetMapping("/movies")
+    @GetMapping
     public ResponseEntity<List<Movie>> getMovies() {
         return ResponseEntity.ok(movieService.getAllMovies());
     }
