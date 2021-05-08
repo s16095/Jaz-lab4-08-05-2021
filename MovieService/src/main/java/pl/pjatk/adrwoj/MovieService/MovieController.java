@@ -12,12 +12,12 @@ public class MovieController {
 
     private final MovieService movieService;
 
-    public MovieController(MovieController movieController) {
+    public MovieController(MovieService movieService) {
         this.movieService = movieService;
     }
 
-    @GetMapping("/models")
-    public ResponseEntity<List<Car>> getMovies() {
+    @GetMapping("/movies")
+    public ResponseEntity<List<Movie>> getMovies() {
         return ResponseEntity.ok(movieService.getAllMovies());
     }
 }
