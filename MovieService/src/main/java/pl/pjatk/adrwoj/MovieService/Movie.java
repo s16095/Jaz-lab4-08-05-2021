@@ -1,24 +1,36 @@
 package pl.pjatk.adrwoj.MovieService;
 
+import javax.persistence.*;
+
+@Entity
 public class Movie {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "Name")
     private String name;
+    @Column(name = "Category")
+    @Enumerated(EnumType.STRING)
     private EnumMovie category;
+    @Column(name = "Author")
     private String author;
+    @Column(name = "isAvailable")
+    private boolean isAvailable;
 
-    public Movie(int id, String name, EnumMovie category, String author) {
+    public Movie(Long id, String name, EnumMovie category, String author) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.author = author;
+        this.isAvailable = false;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -44,5 +56,13 @@ public class Movie {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 }

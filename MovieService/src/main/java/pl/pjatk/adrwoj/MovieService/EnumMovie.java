@@ -1,6 +1,6 @@
 package pl.pjatk.adrwoj.MovieService;
 
-public enum EnumMovie {
+public enum EnumMovie{
     Science_Fiction,
     Adventure,
     Fantasy,
